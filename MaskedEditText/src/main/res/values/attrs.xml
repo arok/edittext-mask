@@ -7,5 +7,6 @@
         <attr name="denied_chars" format="string" />
 		<attr name="char_representation" format="string" />
 		<attr name="keep_hint" format="boolean" />
+		<attr name="hint" format="string" />
 	</declare-styleable>
 </resources>

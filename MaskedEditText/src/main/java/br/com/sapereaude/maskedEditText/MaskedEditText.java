@@ -34,6 +34,7 @@ public class MaskedEditText extends TextInputEditText implements TextWatcher {
 		}
 	};
 	private String mask;
+	private String hint;
 	private char charRepresentation;
 	private boolean keepHint;
 	private int[] rawToMask;
@@ -64,6 +65,15 @@ public class MaskedEditText extends TextInputEditText implements TextWatcher {
 
 		TypedArray attributes = context.obtainStyledAttributes(attrs, R.styleable.MaskedEditText);
 		mask = attributes.getString(R.styleable.MaskedEditText_mask);
+		hint = attributes.getString(R.styleable.MaskedEditText_hint);
+		if (hint == null) {
+			CharSequence originalHint = getHint();
+			if (originalHint != null) {
+				hint = originalHint.toString();
+			} else {
+				hint = "";
+			}
+		}
 
         allowedChars = attributes.getString(R.styleable.MaskedEditText_allowed_chars);
         deniedChars = attributes.getString(R.styleable.MaskedEditText_denied_chars);
@@ -173,7 +183,7 @@ public class MaskedEditText extends TextInputEditText implements TextWatcher {
 	}
 
 	private boolean hasHint() {
-		return getHint() != null;
+		return hint != null;
 	}
 
 	public MaskedEditText(Context context, AttributeSet attrs, int defStyle) {
@@ -438,7 +448,7 @@ public class MaskedEditText extends TextInputEditText implements TextWatcher {
                 if (mtrv < rawText.length()) {
                     ssb.append(rawText.charAt(mtrv));
                 } else {
-                    ssb.append(getHint().charAt(maskToRaw[i]));
+                    ssb.append(hint.charAt(maskToRaw[i]));
                 }
             } else {
                 ssb.append(mask.charAt(i));
