@@ -1,7 +1,7 @@
 package ru.egslava.lib_phone;
 
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatActivity;
 
 /**
  * Created by egslava on 04/03/2017.
