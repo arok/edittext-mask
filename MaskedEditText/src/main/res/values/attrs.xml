@@ -8,5 +8,6 @@
 		<attr name="char_representation" format="string" />
 		<attr name="keep_hint" format="boolean" />
 		<attr name="hint" format="string" />
+		<attr name="prefill_text" format="string" />
 	</declare-styleable>
 </resources>
